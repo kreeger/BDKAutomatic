@@ -1,7 +1,10 @@
 pod "BDKAutomatic", :path => "../BDKAutomatic.podspec"
 
-target "Demo" do
-end
+# target "BDKAutomatic" do
 
-target "DemoTests" do
+# end
+
+target "Specs" do
+  pod 'Specta', :head
+  pod 'Expecta', :head
 end

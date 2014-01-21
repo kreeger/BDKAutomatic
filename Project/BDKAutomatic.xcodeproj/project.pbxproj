@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2946D3F742B94F6DBDB00E51 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02AB4A0C5C4A49C9A6CF5B50 /* libPods.a */; };
+		5828636C79AC4B2BBF1D48DB /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF614AE7C9B74202A6CD5D32 /* libPods-Specs.a */; };
 		B52A0D1C188DED6C00C21D6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52A0D1B188DED6C00C21D6C /* Foundation.framework */; };
 		B52A0D1E188DED6C00C21D6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52A0D1D188DED6C00C21D6C /* CoreGraphics.framework */; };
 		B52A0D20188DED6C00C21D6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52A0D1F188DED6C00C21D6C /* UIKit.framework */; };
@@ -20,6 +22,7 @@
 		B536C113188DED9C00C02470 /* Specs-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B536C10F188DED9C00C02470 /* Specs-Info.plist */; };
 		B536C114188DED9C00C02470 /* BDKAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B536C110188DED9C00C02470 /* BDKAutomaticTests.m */; };
 		B536C115188DED9C00C02470 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B536C111188DED9C00C02470 /* InfoPlist.strings */; };
+		B536C11F188DEFDF00C02470 /* BDKAutomatic.m in Sources */ = {isa = PBXBuildFile; fileRef = B536C11E188DEFDF00C02470 /* BDKAutomatic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,11 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02AB4A0C5C4A49C9A6CF5B50 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6E3BC3E34B4B1480D24EF3 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = "<group>"; };
 		B52A0D18188DED6C00C21D6C /* BDKAutomatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDKAutomatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52A0D1B188DED6C00C21D6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B52A0D1D188DED6C00C21D6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B52A0D1F188DED6C00C21D6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B52A0D33188DED6C00C21D6C /* BDKAutomaticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDKAutomaticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52A0D33188DED6C00C21D6C /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52A0D34188DED6C00C21D6C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B536C101188DED9400C02470 /* BDKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDKAppDelegate.h; sourceTree = "<group>"; };
 		B536C102188DED9400C02470 /* BDKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDKAppDelegate.m; sourceTree = "<group>"; };
@@ -49,6 +54,10 @@
 		B536C10F188DED9C00C02470 /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
 		B536C110188DED9C00C02470 /* BDKAutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDKAutomaticTests.m; sourceTree = "<group>"; };
 		B536C112188DED9C00C02470 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B536C11D188DEFDF00C02470 /* BDKAutomatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDKAutomatic.h; path = ../Classes/BDKAutomatic.h; sourceTree = "<group>"; };
+		B536C11E188DEFDF00C02470 /* BDKAutomatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDKAutomatic.m; path = ../Classes/BDKAutomatic.m; sourceTree = "<group>"; };
+		ED02175D452F4A59AE76AD72 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FF614AE7C9B74202A6CD5D32 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +68,7 @@
 				B52A0D1E188DED6C00C21D6C /* CoreGraphics.framework in Frameworks */,
 				B52A0D20188DED6C00C21D6C /* UIKit.framework in Frameworks */,
 				B52A0D1C188DED6C00C21D6C /* Foundation.framework in Frameworks */,
+				2946D3F742B94F6DBDB00E51 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +79,7 @@
 				B52A0D35188DED6C00C21D6C /* XCTest.framework in Frameworks */,
 				B52A0D37188DED6C00C21D6C /* UIKit.framework in Frameworks */,
 				B52A0D36188DED6C00C21D6C /* Foundation.framework in Frameworks */,
+				5828636C79AC4B2BBF1D48DB /* libPods-Specs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +94,8 @@
 				B52A0D1A188DED6C00C21D6C /* Frameworks */,
 				B52A0D19188DED6C00C21D6C /* Products */,
 				B536C10E188DED9C00C02470 /* Specs */,
+				ED02175D452F4A59AE76AD72 /* Pods.xcconfig */,
+				5A6E3BC3E34B4B1480D24EF3 /* Pods-Specs.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B52A0D18188DED6C00C21D6C /* BDKAutomatic.app */,
-				B52A0D33188DED6C00C21D6C /* BDKAutomaticTests.xctest */,
+				B52A0D33188DED6C00C21D6C /* Specs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +115,8 @@
 				B52A0D1D188DED6C00C21D6C /* CoreGraphics.framework */,
 				B52A0D1F188DED6C00C21D6C /* UIKit.framework */,
 				B52A0D34188DED6C00C21D6C /* XCTest.framework */,
+				02AB4A0C5C4A49C9A6CF5B50 /* libPods.a */,
+				FF614AE7C9B74202A6CD5D32 /* libPods-Specs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +148,8 @@
 		B536C116188DEDC200C02470 /* BDKAutomatic */ = {
 			isa = PBXGroup;
 			children = (
+				B536C11D188DEFDF00C02470 /* BDKAutomatic.h */,
+				B536C11E188DEFDF00C02470 /* BDKAutomatic.m */,
 			);
 			name = BDKAutomatic;
 			sourceTree = "<group>";
@@ -144,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B52A0D44188DED6C00C21D6C /* Build configuration list for PBXNativeTarget "BDKAutomatic" */;
 			buildPhases = (
+				337D016C90B84EE79DAC83FE /* Check Pods Manifest.lock */,
 				B52A0D14188DED6C00C21D6C /* Sources */,
 				B52A0D15188DED6C00C21D6C /* Frameworks */,
 				B52A0D16188DED6C00C21D6C /* Resources */,
+				3A462E5C77B34338ACDCAC40 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B52A0D47188DED6C00C21D6C /* Build configuration list for PBXNativeTarget "Specs" */;
 			buildPhases = (
+				8FFD181ED77E463B942022A1 /* Check Pods Manifest.lock */,
 				B52A0D2F188DED6C00C21D6C /* Sources */,
 				B52A0D30188DED6C00C21D6C /* Frameworks */,
 				B52A0D31188DED6C00C21D6C /* Resources */,
+				D0CB7AC471834E4CB6EE60DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,7 +193,7 @@
 			);
 			name = Specs;
 			productName = BDKAutomaticTests;
-			productReference = B52A0D33188DED6C00C21D6C /* BDKAutomaticTests.xctest */;
+			productReference = B52A0D33188DED6C00C21D6C /* Specs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -229,12 +250,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		337D016C90B84EE79DAC83FE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3A462E5C77B34338ACDCAC40 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FFD181ED77E463B942022A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0CB7AC471834E4CB6EE60DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Specs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B52A0D14188DED6C00C21D6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B536C10D188DED9400C02470 /* main.m in Sources */,
+				B536C11F188DEFDF00C02470 /* BDKAutomatic.m in Sources */,
 				B536C109188DED9400C02470 /* BDKAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +436,7 @@
 		};
 		B52A0D45188DED6C00C21D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED02175D452F4A59AE76AD72 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -364,6 +450,7 @@
 		};
 		B52A0D46188DED6C00C21D6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED02175D452F4A59AE76AD72 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -377,6 +464,7 @@
 		};
 		B52A0D48188DED6C00C21D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A6E3BC3E34B4B1480D24EF3 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BDKAutomatic.app/BDKAutomatic";
@@ -400,6 +488,7 @@
 		};
 		B52A0D49188DED6C00C21D6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A6E3BC3E34B4B1480D24EF3 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BDKAutomatic.app/BDKAutomatic";
