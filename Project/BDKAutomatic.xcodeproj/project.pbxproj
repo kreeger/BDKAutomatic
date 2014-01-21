@@ -22,7 +22,6 @@
 		B536C113188DED9C00C02470 /* Specs-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B536C10F188DED9C00C02470 /* Specs-Info.plist */; };
 		B536C114188DED9C00C02470 /* BDKAutomaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B536C110188DED9C00C02470 /* BDKAutomaticTests.m */; };
 		B536C115188DED9C00C02470 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B536C111188DED9C00C02470 /* InfoPlist.strings */; };
-		B536C11F188DEFDF00C02470 /* BDKAutomatic.m in Sources */ = {isa = PBXBuildFile; fileRef = B536C11E188DEFDF00C02470 /* BDKAutomatic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +53,6 @@
 		B536C10F188DED9C00C02470 /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
 		B536C110188DED9C00C02470 /* BDKAutomaticTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDKAutomaticTests.m; sourceTree = "<group>"; };
 		B536C112188DED9C00C02470 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B536C11D188DEFDF00C02470 /* BDKAutomatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDKAutomatic.h; path = ../Classes/BDKAutomatic.h; sourceTree = "<group>"; };
-		B536C11E188DEFDF00C02470 /* BDKAutomatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDKAutomatic.m; path = ../Classes/BDKAutomatic.m; sourceTree = "<group>"; };
 		ED02175D452F4A59AE76AD72 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FF614AE7C9B74202A6CD5D32 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,7 +86,6 @@
 		B52A0D0F188DED6B00C21D6C = {
 			isa = PBXGroup;
 			children = (
-				B536C116188DEDC200C02470 /* BDKAutomatic */,
 				B536C100188DED9400C02470 /* Classes */,
 				B52A0D1A188DED6C00C21D6C /* Frameworks */,
 				B52A0D19188DED6C00C21D6C /* Products */,
@@ -143,15 +139,6 @@
 				B536C111188DED9C00C02470 /* InfoPlist.strings */,
 			);
 			path = Specs;
-			sourceTree = "<group>";
-		};
-		B536C116188DEDC200C02470 /* BDKAutomatic */ = {
-			isa = PBXGroup;
-			children = (
-				B536C11D188DEFDF00C02470 /* BDKAutomatic.h */,
-				B536C11E188DEFDF00C02470 /* BDKAutomatic.m */,
-			);
-			name = BDKAutomatic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B536C10D188DED9400C02470 /* main.m in Sources */,
-				B536C11F188DEFDF00C02470 /* BDKAutomatic.m in Sources */,
 				B536C109188DED9400C02470 /* BDKAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BD12A5E5-5D5A-4CFE-A6E4-762BB892EBD2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BDKAutomatic</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F4EF800C-BF02-422C-A4FE-BCDB47669C37</key>
+		<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Project/BDKAutomatic.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F4EF800C-BF02-422C-A4FE-BCDB47669C37</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F4EF800C-BF02-422C-A4FE-BCDB47669C37</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F4EF800C-BF02-422C-A4FE-BCDB47669C37</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BDKAutomatic</string>
+		</dict>
+	</array>
+</dict>
+</plist>
