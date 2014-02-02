@@ -6,10 +6,13 @@
 //  Copyright (c) 2014 Ben Kreeger. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
+@class BDKAutomatic;
 
 @interface BDKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (readonly) BDKAutomatic *automatic;
 
 @end

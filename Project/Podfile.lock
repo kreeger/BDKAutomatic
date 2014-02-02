@@ -12,11 +12,13 @@ PODS:
     - AFNetworking/NSURLSession (~> 2.0.0)
     - AFNetworking/Serialization (~> 2.0.0)
   - Expecta (HEAD based on 0.2.3)
+  - Reveal-iOS-SDK (1.0.3)
   - Specta (HEAD based on 0.2.1)
 
 DEPENDENCIES:
   - BDKAutomatic (from `../BDKAutomatic.podspec`)
   - Expecta (HEAD)
+  - Reveal-iOS-SDK
   - Specta (HEAD)
 
 EXTERNAL SOURCES:
@@ -27,6 +29,7 @@ SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   BDKAutomatic: 4e0979db91fc7191f560333f4d5911922dcc8a4b
   Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
+  Reveal-iOS-SDK: f2525cb560a564fdc086316e89ec45ced6977fd3
   Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
 COCOAPODS: 0.29.0
