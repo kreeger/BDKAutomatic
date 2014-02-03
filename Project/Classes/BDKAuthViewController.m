@@ -35,7 +35,7 @@
     [super viewDidLoad];
     
     self.title = @"Login to Automatic";
-    NSURLRequest *request = [self.automatic authenticationRequestForScopes:@[BDKAutomaticScopeTripSummary, BDKAutomaticScopeVehicle]];
+    NSURLRequest *request = [self.automatic authenticationRequestForAllScopes];
     [self.webView loadRequest:request];
 }
 

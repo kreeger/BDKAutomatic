@@ -26,7 +26,7 @@
                     clientSecret:(NSString *)clientSecret
                      redirectUrl:(NSURL *)redirectUrl
                            token:(BDKAutomaticToken *)token {
-    self = [super initWithBaseURL:[NSURL URLWithString:@"https://api.automatic.com/v1/"]];
+    self = [super initWithBaseURL:[NSURL URLWithString:@"https://api.automatic.com"]];
     if (!self) return nil;
 
     _clientId = clientId;
@@ -66,7 +66,7 @@
 
 - (NSURLRequest *)authenticationRequestForScopes:(NSArray *)scopes {
     NSDictionary *params = @{@"client_id": self.clientId,
-                             @"scopes": [scopes componentsJoinedByString:@" "],
+                             @"scope": [scopes componentsJoinedByString:@" "],
                              @"response_type": @"code"};
     NSMutableArray *components = [NSMutableArray array];
     [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
@@ -103,7 +103,7 @@
 #pragma mark - Trip data
 
 - (void)getTrips:(BDKAutomaticCompletionBlock)completion {
-    NSString *url = @"/trips";
+    NSString *url = @"/v1/trips";
     NSDictionary *params = @{};
     [self GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (completion) {
