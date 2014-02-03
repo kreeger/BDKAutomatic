@@ -27,15 +27,7 @@
     
     [self setupAutomaticAPI];
     
-    BDKAuthViewController *authVC = [BDKAuthViewController viewControllerWithAutomaticAdapter:self.automatic];
-    authVC.userAuthenticated = ^(BDKAutomaticToken *token) {
-        BDKTableViewController *tableVC = [BDKTableViewController viewControllerWithAutomaticAdapter:self.automatic];
-        UINavigationController *tableNav = [[UINavigationController alloc] initWithRootViewController:tableVC];
-        self.window.rootViewController = tableNav;
-    };
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:authVC];
-    self.window.rootViewController = nav;
+    self.automatic.token ? [self showAuthenticatedFlow] : [self showUnauthenticatedFlow];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -57,7 +49,39 @@
     
     NSURL *redirectUrl = [NSURL URLWithString:redirectUrlString];
     _automatic = [[BDKAutomatic alloc] initWithClientId:clientId clientSecret:clientSecret redirectUrl:redirectUrl];
-    // TODO: Also load in stored token object if available
+    
+    NSData *tokenData = [[NSUserDefaults standardUserDefaults] objectForKey:@"BDKAutomaticToken"];
+    if (tokenData) {
+        BDKAutomaticToken *token = [NSKeyedUnarchiver unarchiveObjectWithData:tokenData];
+        _automatic.token = token;
+    }
+}
+
+- (void)showAuthenticatedFlow {
+    BDKTableViewController *tableVC = [BDKTableViewController viewControllerWithAutomaticAdapter:self.automatic];
+    tableVC.userDidLogout = ^{
+        self.automatic.token = nil;
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BDKAutomaticToken"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self showUnauthenticatedFlow];
+    };
+    UINavigationController *tableNav = [[UINavigationController alloc] initWithRootViewController:tableVC];
+    self.window.rootViewController = tableNav;
+}
+
+- (void)showUnauthenticatedFlow {
+    BDKAuthViewController *authVC = [BDKAuthViewController viewControllerWithAutomaticAdapter:self.automatic];
+    authVC.userAuthenticated = ^(BDKAutomaticToken *token) {
+        // Save it to defaults; in your real app, PLEASE save this data to Keychain instead.
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:token];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"BDKAutomaticToken"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self showAuthenticatedFlow];
+    };
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:authVC];
+    self.window.rootViewController = nav;
 }
 
 @end

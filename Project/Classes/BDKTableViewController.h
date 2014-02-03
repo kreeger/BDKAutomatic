@@ -14,6 +14,7 @@
 
 @property (readonly) BDKAutomatic *automatic;
 @property (readonly, nonatomic) UITableView *tableView;
+@property (copy, nonatomic) void(^userDidLogout)(void);
 
 + (instancetype)viewControllerWithAutomaticAdapter:(BDKAutomatic *)adapter;
 

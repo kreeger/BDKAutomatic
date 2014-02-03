@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BDKAutomaticToken : NSObject
+@interface BDKAutomaticToken : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *accessToken;
-@property (assign, nonatomic) NSDate *expiresAt;
+@property (strong, nonatomic) NSDate *expiresAt;
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSArray *scopes;
 @property (strong, nonatomic) NSString *refreshToken;

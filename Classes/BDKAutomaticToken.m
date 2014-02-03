@@ -16,6 +16,8 @@
 
 @implementation BDKAutomaticToken
 
+#pragma mark - Lifecycle
+
 + (instancetype)tokenWithDictionary:(NSDictionary *)dictionary {
     return [[self alloc] initWithDictionary:dictionary];
 }
@@ -34,6 +36,33 @@
     
     return self;
 }
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (!self) return nil;
+    
+    _accessToken = [aDecoder decodeObjectForKey:@"accessToken"];
+    _expiresAt = [aDecoder decodeObjectForKey:@"expiresAt"];
+    _userId = [aDecoder decodeObjectForKey:@"userId"];
+    _scopes = [aDecoder decodeObjectForKey:@"scopes"];
+    _refreshToken = [aDecoder decodeObjectForKey:@"refreshToken"];
+    _tokenType = [aDecoder decodeObjectForKey:@"tokenType"];
+    
+    return self;
+}
+
+#pragma mark - NSCoder
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.accessToken forKey:@"accessToken"];
+    [aCoder encodeObject:self.expiresAt forKey:@"expiresAt"];
+    [aCoder encodeObject:self.userId forKey:@"userId"];
+    [aCoder encodeObject:self.scopes forKey:@"scopes"];
+    [aCoder encodeObject:self.refreshToken forKey:@"refreshToken"];
+    [aCoder encodeObject:self.tokenType forKey:@"tokenType"];
+}
+
+#pragma mark - NSObject
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@ %p> { accessToken: %@, expiresAt: %@, userId: %@, scopes: %@ }",

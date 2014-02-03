@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *rawTrips;
 
 - (void)tableViewDidPullToRefresh:(UIRefreshControl *)control;
+- (void)logoutButtonTapped:(UIBarButtonItem *)sender;
 
 @end
 
@@ -45,6 +46,12 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(tableViewDidPullToRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(logoutButtonTapped:)];
+    self.navigationItem.leftBarButtonItem = logoutButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,6 +89,12 @@
         self.rawTrips = responseObject;
         [control endRefreshing];
     }];
+}
+
+- (void)logoutButtonTapped:(UIBarButtonItem *)sender {
+    if (self.userDidLogout) {
+        self.userDidLogout();
+    }
 }
 
 #pragma mark - UITableViewDataSource
