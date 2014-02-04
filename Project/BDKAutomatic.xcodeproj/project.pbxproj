@@ -25,6 +25,7 @@
 		B5AA05CE189ED0DA00F516D4 /* BDKAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AA05CD189ED0DA00F516D4 /* BDKAuthViewController.m */; };
 		B5AA05D8189EDC8C00F516D4 /* BDKAutomaticSecrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5AA05D7189EDC8C00F516D4 /* BDKAutomaticSecrets.plist */; };
 		B5AA05DB189EE2E700F516D4 /* BDKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AA05DA189EE2E700F516D4 /* BDKTableViewController.m */; };
+		B5B3F54E18A12FA00043E3CE /* BDKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B3F54D18A12FA00043E3CE /* BDKMapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		B5AA05D7189EDC8C00F516D4 /* BDKAutomaticSecrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BDKAutomaticSecrets.plist; sourceTree = "<group>"; };
 		B5AA05D9189EE2E700F516D4 /* BDKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDKTableViewController.h; sourceTree = "<group>"; };
 		B5AA05DA189EE2E700F516D4 /* BDKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDKTableViewController.m; sourceTree = "<group>"; };
+		B5B3F54C18A12FA00043E3CE /* BDKMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDKMapViewController.h; sourceTree = "<group>"; };
+		B5B3F54D18A12FA00043E3CE /* BDKMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDKMapViewController.m; sourceTree = "<group>"; };
 		ED02175D452F4A59AE76AD72 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FF614AE7C9B74202A6CD5D32 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +135,8 @@
 				B536C102188DED9400C02470 /* BDKAppDelegate.m */,
 				B5AA05CC189ED0DA00F516D4 /* BDKAuthViewController.h */,
 				B5AA05CD189ED0DA00F516D4 /* BDKAuthViewController.m */,
+				B5B3F54C18A12FA00043E3CE /* BDKMapViewController.h */,
+				B5B3F54D18A12FA00043E3CE /* BDKMapViewController.m */,
 				B5AA05D9189EE2E700F516D4 /* BDKTableViewController.h */,
 				B5AA05DA189EE2E700F516D4 /* BDKTableViewController.m */,
 				B5AA05D7189EDC8C00F516D4 /* BDKAutomaticSecrets.plist */,
@@ -319,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B3F54E18A12FA00043E3CE /* BDKMapViewController.m in Sources */,
 				B5AA05CE189ED0DA00F516D4 /* BDKAuthViewController.m in Sources */,
 				B536C10D188DED9400C02470 /* main.m in Sources */,
 				B536C109188DED9400C02470 /* BDKAppDelegate.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "BDKTableViewController.h"
 
+#import "BDKMapViewController.h"
+
 #import <BDKAutomatic/BDKAutomatic.h>
 
 @interface BDKTableViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -88,6 +90,8 @@
         }
         self.rawTrips = responseObject;
         [control endRefreshing];
+        
+        [self.tableView reloadData];
     }];
 }
 
@@ -110,13 +114,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = self.rawTrips[indexPath.row][@"id"];
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //
+    BDKMapViewController *mapVC = [BDKMapViewController new];
+    mapVC.trip = self.rawTrips[indexPath.row];
+    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 @end
