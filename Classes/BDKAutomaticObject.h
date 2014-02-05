@@ -12,4 +12,7 @@
 
 + (NSDictionary *)attributeMap;
 
+- (instancetype)initWithAPIObject:(NSDictionary *)apiObject;
+- (void)updateWithAPIObject:(NSDictionary *)apiObject;
+
 @end

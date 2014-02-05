@@ -8,6 +8,8 @@
 
 #import "BDKAutomatic.h"
 
+#import "BDKAutomaticTrip.h"
+
 @implementation BDKAutomatic
 
 @synthesize clientId = _clientId;
@@ -106,8 +108,12 @@
     NSString *url = @"/v1/trips";
     NSDictionary *params = @{};
     [self GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableArray *mResults = [NSMutableArray array];
+        [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [mResults addObject:[[BDKAutomaticTrip alloc] initWithAPIObject:obj]];
+        }];
         if (completion) {
-            completion(nil, responseObject);
+            completion(nil, [mResults copy]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) {

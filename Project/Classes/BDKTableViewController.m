@@ -11,6 +11,7 @@
 #import "BDKMapViewController.h"
 
 #import <BDKAutomatic/BDKAutomatic.h>
+#import <BDKAutomatic/BDKAutomaticTrip.h>
 
 @interface BDKTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -113,7 +114,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = self.rawTrips[indexPath.row][@"id"];
+    BDKAutomaticTrip *trip = self.rawTrips[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", trip.startTime];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }

@@ -10,4 +10,22 @@
 
 @implementation BDKAutomaticVehicle
 
+#pragma mark - BDKAutomaticObject
+
++ (NSDictionary *)attributeMap {
+    return @{@"displayName": @"display_name",
+             @"identifier": @"id",
+             @"make": @"make",
+             @"model": @"model",
+             @"year": @"year",
+             };
+}
+
+#pragma mark - NSObject
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@ %p> { id: %@, year: %@, make: %@, model: %@ }",
+            NSStringFromClass([self class]), self, self.identifier, self.year, self.make, self.model];
+}
+
 @end
