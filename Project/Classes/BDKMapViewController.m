@@ -8,7 +8,10 @@
 
 #import "BDKMapViewController.h"
 
+@import MapKit;
+
 #import <BDKAutomatic/BDKAutomaticTrip.h>
+#import <BDKAutomatic/MKPolyline+BDKEncodedString.h>
 
 @interface BDKMapViewController ()
 
@@ -25,6 +28,8 @@
 
 - (void)setTrip:(BDKAutomaticTrip *)trip {
     self.title = [NSString stringWithFormat:@"%@", trip.identifier];
+    MKPolyline *line = [MKPolyline polylineWithEncodedString:trip.path];
+    NSLog(@"Polyline is %@", line);
 }
 
 @end
