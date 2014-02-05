@@ -7,4 +7,5 @@ before_install:
   - gem install cocoapods --no-ri --no-rdoc
 script:
   - cd Project && pod install
+  - cp Classes/BDKAutomaticSecrets.plist.example Classes/BDKAutomaticSecrets.plist
   - xctool -workspace BDKAutomatic.xcworkspace -scheme BDKAutomatic -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build
