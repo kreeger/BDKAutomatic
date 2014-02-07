@@ -4,8 +4,6 @@
 [![Platform](http://cocoapod-badges.herokuapp.com/p/BDKAutomatic/badge.png)](http://cocoadocs.org/docsets/BDKAutomatic)
 [![Build Status](https://travis-ci.org/kreeger/BDKAutomatic.png?branch=master)](https://travis-ci.org/kreeger/BDKAutomatic)
 
-**NOTE**: formal podspec and subspec coming very soon. Stay tuned.
-
 ## Overview
 
 A library, along with a sample project, that demonstrates some basic usage of the [Automatic REST API][rest]. Right now, the library does the following:
@@ -67,8 +65,6 @@ If you wish to use the "path-to-`MKPolyline`" functionality, you'll want to incl
 ``` ruby
 pod 'BDKAutomatic/MKPolylineSupport'
 ```
-
-**NOTE**: separate podspec coming soon.
 
 ## Author
 
