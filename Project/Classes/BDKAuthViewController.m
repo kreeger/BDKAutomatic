@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UIWebView *webView;
 @property (weak, nonatomic) BDKAutomatic *automatic;
 
+- (void)handleAutomaticAuthenticationQueryString:(NSString *)queryString;
+
 @end
 
 @implementation BDKAuthViewController
@@ -49,6 +51,24 @@
     return _webView;
 }
 
+#pragma mark - Private methods
+
+- (void)handleAutomaticAuthenticationQueryString:(NSString *)queryString {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [[queryString componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(NSString *segment, NSUInteger idx, BOOL *stop) {
+        NSArray *components = [segment componentsSeparatedByString:@"="];
+        NSString *key = [components[0] stringByRemovingPercentEncoding];
+        NSString *value = [components[1] stringByRemovingPercentEncoding];
+        params[key] = value ?: [NSNull null];
+    }];
+    
+    [self.automatic getAccessTokenForCode:params[@"code"] completion:^(NSError *error, BDKAutomaticToken *token) {
+        if (self.userAuthenticated) {
+            self.userAuthenticated(token);
+        }
+    }];
+}
+
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView
@@ -56,19 +76,7 @@
  navigationType:(UIWebViewNavigationType)navigationType {
     if ([[[request URL] absoluteString] hasPrefix:[self.automatic.redirectUrl absoluteString]]) {
         NSString *queryString = [[[[request URL] absoluteString] componentsSeparatedByString:@"?"] lastObject];
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [[queryString componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(NSString *segment, NSUInteger idx, BOOL *stop) {
-            NSArray *components = [segment componentsSeparatedByString:@"="];
-            NSString *key = [components[0] stringByRemovingPercentEncoding];
-            NSString *value = [components[1] stringByRemovingPercentEncoding];
-            params[key] = value ?: [NSNull null];
-        }];
-        
-        [self.automatic getAccessTokenForCode:params[@"code"] completion:^(NSError *error, BDKAutomaticToken *token) {
-            if (self.userAuthenticated) {
-                self.userAuthenticated(token);
-            }
-        }];
+        [self handleAutomaticAuthenticationQueryString:queryString];
         return NO;
     }
     return YES;
