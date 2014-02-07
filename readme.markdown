@@ -22,15 +22,15 @@ Just include `#import <BDKAutomatic/BDKAutomatic.h>` at the top of whatever Obje
 
 ``` objective-c
 BDKAutomatic *adapter = [[BDKAutomatic alloc] initWithClientId:clientId
-                                                 clientSecret:clientSecret
-                                                  redirectUrl:redirectUrl];
+                                                  clientSecret:clientSecret
+                                                   redirectUrl:redirectUrl];
 ```
 
 You'll need to authenticate it against a user account using the OAuth2 dance. See `-[BDKAuthViewController handleAutomaticAuthenticationQueryString:]` for usage examples. Once you trade your authorization code for a legitimate `BDKAutomaticToken` (which conforms to `NSCopying`, by the way, so you can marshal that bad boy to Keychain or something), you can make calls on behalf of an Automatic user.
 
 ``` objective-c
 [self.automatic getTrips:^(NSError *error, NSArray *trips) {
-    BDKAutomaticTrip *trip = []trips firstObject];
+    BDKAutomaticTrip *trip = [trips firstObject];
     NSLog(@"Trip started %@.", trip.startTime);
 }];
 ```
@@ -60,10 +60,10 @@ BDKAutomatic is available through [CocoaPods](http://cocoapods.org), which is ri
 pod 'BDKAutomatic'
 ```
 
-If you wish to use the "path-to-`MKPolyline`" functionality, you'll want to include a separate subspec for that.
+If you don't want to use the "path-to-`MKPolyline`" functionality, just use [the subspec for the adapter](https://github.com/kreeger/BDKAutomatic/blob/master/BDKAutomatic.podspec#L14).
 
 ``` ruby
-pod 'BDKAutomatic/MKPolylineSupport'
+pod 'BDKAutomatic/Adapter'
 ```
 
 ## Author
