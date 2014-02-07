@@ -7,18 +7,19 @@ Pod::Spec.new do |s|
   s.author       = { "Ben Kreeger" => "ben@kree.gr" }
   s.source       = { :git => "https://github.com/kreeger/BDKAutomatic.git", :tag => "v#{s.version}" }
 
-  # s.platform     = :ios, '5.0'
   s.ios.deployment_target = '7.0'
-  # s.osx.deployment_target = '10.8'
+  s.osx.deployment_target = '10.8'
   s.requires_arc = true
-
   s.source_files = 'Classes/**/*.{h,m}'
-  s.resources = 'Assets'
 
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  s.dependency 'AFNetworking/Serialization', '~> 2.0.0'
-  s.dependency 'AFNetworking/NSURLSession', '~> 2.0.0'
+  s.subspec 'Adapter' do |sub|
+    sub.source_files = 'Classes/*.{h,m}'
+    sub.dependency 'AFNetworking/Serialization', '>= 2.0.0'
+    sub.dependency 'AFNetworking/NSURLSession', '>= 2.0.0'
+  end
+
+  s.subspec 'MKPolyline' do |sub|
+    sub.source_files = 'Classes/MapKit/*.{h,m}'
+    sub.frameworks = 'MapKit'
+  end
 end
