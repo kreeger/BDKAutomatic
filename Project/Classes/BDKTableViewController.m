@@ -17,9 +17,11 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (weak, nonatomic) BDKAutomatic *automatic;
 
-@property (strong, nonatomic) NSArray *rawTrips;
+@property (strong, nonatomic) NSDictionary *tripDict;
+@property (strong, nonatomic) NSArray *sectionKeys;
 
 - (void)tableViewDidPullToRefresh:(UIRefreshControl *)control;
 - (void)logoutButtonTapped:(UIBarButtonItem *)sender;
@@ -44,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.rawTrips = [NSArray array];
+    self.tripDict = [NSDictionary dictionary];
     self.title = @"Trips";
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(tableViewDidPullToRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -71,8 +73,16 @@
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    // Not so fast; we're using subtitle-styled cells
+    // [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     return _tableView;
+}
+
+- (NSDateFormatter *)dateFormatter {
+    if (_dateFormatter) return _dateFormatter;
+    _dateFormatter = [NSDateFormatter new];
+    [_dateFormatter setDateFormat:@"h:mm:ss a"];
+    return _dateFormatter;
 }
 
 #pragma mark - Private methods
@@ -89,7 +99,27 @@
             [control endRefreshing];
             return;
         }
-        self.rawTrips = responseObject;
+        
+        NSMutableDictionary *mTrips = [NSMutableDictionary dictionary];
+        NSMutableSet *orderedKeys = [NSMutableSet set];
+        NSDateFormatter *sectionDF = [NSDateFormatter new];
+        [sectionDF setDateFormat:@"yyyy-MM-dd"];
+        NSDateFormatter *titleDF = [NSDateFormatter new];
+        [titleDF setDateFormat:@"MMMM d, yyyy"];
+        [responseObject enumerateObjectsUsingBlock:^(BDKAutomaticTrip *trip, NSUInteger idx, BOOL *stop) {
+            NSString *sectionString = [sectionDF stringFromDate:trip.startTime];
+            [orderedKeys addObject:sectionString];
+            if (mTrips[sectionString]) {
+                [mTrips[sectionString][@"trips"] addObject:trip];
+            } else {
+                mTrips[sectionString] = @{@"title": [titleDF stringFromDate:trip.startTime],
+                                          @"trips": [NSMutableArray arrayWithObject:trip]};
+            }
+        }];
+        
+        NSArray *ordered = [[orderedKeys allObjects] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+        self.sectionKeys = [[ordered reverseObjectEnumerator] allObjects];
+        self.tripDict = [mTrips copy];
         [control endRefreshing];
         
         [self.tableView reloadData];
@@ -105,18 +135,29 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.sectionKeys count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *key = self.sectionKeys[section];
+    return self.tripDict[key][@"title"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.rawTrips count];
+    NSString *title = self.sectionKeys[section];
+    return [self.tripDict[title][@"trips"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    BDKAutomaticTrip *trip = self.rawTrips[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", trip.startTime];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+    }
+    NSString *title = self.sectionKeys[indexPath.section];
+    BDKAutomaticTrip *trip = self.tripDict[title][@"trips"][indexPath.row];
+    cell.textLabel.text = [self.dateFormatter stringFromDate:trip.startTime];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f km", [trip.distanceInMeters floatValue] / 1000];
     return cell;
 }
 
@@ -124,7 +165,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BDKMapViewController *mapVC = [BDKMapViewController new];
-    mapVC.trip = self.rawTrips[indexPath.row];
+    NSString *title = self.sectionKeys[indexPath.section];
+    mapVC.trip = self.tripDict[title][@"trips"][indexPath.row];
     [self.navigationController pushViewController:mapVC animated:YES];
 }
 
