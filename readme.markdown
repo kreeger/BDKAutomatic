@@ -2,6 +2,7 @@
 
 [![Version](http://cocoapod-badges.herokuapp.com/v/BDKAutomatic/badge.png)](http://cocoadocs.org/docsets/BDKAutomatic)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/BDKAutomatic/badge.png)](http://cocoadocs.org/docsets/BDKAutomatic)
+[![Build Status](https://travis-ci.org/kreeger/BDKAutomatic.png?branch=master)](https://travis-ci.org/kreeger/BDKAutomatic)
 
 ## Overview
 
