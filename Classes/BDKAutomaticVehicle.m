@@ -18,6 +18,8 @@
              @"make": @"make",
              @"model": @"model",
              @"year": @"year",
+             @"uri": @"uri",
+             @"color": @"color"
              };
 }
 

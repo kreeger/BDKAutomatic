@@ -10,6 +10,7 @@
 
 #import "BDKAutomaticTrip.h"
 #import "BDKAutomaticUser.h"
+#import "BDKAutomaticVehicle.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com/v1";
@@ -176,6 +177,43 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
         BDKAutomaticUser *user = [[BDKAutomaticUser alloc] initWithAPIObject:responseObject];
         if (completion) {
             completion(nil, user);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(error, operation.responseObject);
+        }
+    }];
+}
+
+#pragma mark - Vehicle data
+
+- (void)getVehicles:(BDKAutomaticCompletionBlock)completion
+{
+    NSString *url = @"vehicles";
+    NSDictionary *params = @{};
+    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableArray *mResults = [NSMutableArray array];
+        [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [mResults addObject:[[BDKAutomaticVehicle alloc] initWithAPIObject:obj]];
+        }];
+        if (completion) {
+            completion(nil, [mResults copy]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(error, operation.responseObject);
+        }
+    }];
+}
+
+- (void)getVehicleForId:(NSString *)identifier completion:(BDKAutomaticCompletionBlock)completion
+{
+    NSString *url = [NSString stringWithFormat:@"%@/%@", @"vehicles", identifier];
+    NSDictionary *params = @{};
+    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BDKAutomaticVehicle *vehicle = [[BDKAutomaticVehicle alloc] initWithAPIObject:responseObject];
+        if (completion) {
+            completion(nil, vehicle);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) {

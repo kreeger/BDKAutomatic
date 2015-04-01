@@ -47,6 +47,11 @@ typedef void(^BDKAutomaticTokenCompletionBlock)(NSError *error, BDKAutomaticToke
 
 - (void)getUser:(BDKAutomaticCompletionBlock)completion;
 
+#pragma mark - Vehicle data
+
+- (void)getVehicles:(BDKAutomaticCompletionBlock)completion;
+- (void)getVehicleForId:(NSString *)identifier completion:(BDKAutomaticCompletionBlock)completion;
+
 @end
 
 

@@ -15,5 +15,7 @@
 @property (strong, nonatomic) NSString *make;
 @property (strong, nonatomic) NSString *model;
 @property (strong, nonatomic) NSNumber *year;
+@property (strong, nonatomic) NSURL *uri;
+@property (strong, nonatomic) NSString *color;
 
 @end
