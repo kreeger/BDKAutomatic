@@ -11,7 +11,7 @@
 #import "BDKAutomaticTrip.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
-static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com";
+static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com/v1";
 static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automatic.com/oauth";
 
 @interface BDKAutomatic ()
@@ -132,7 +132,7 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
 #pragma mark - Trip data
 
 - (void)getTrips:(BDKAutomaticCompletionBlock)completion {
-    NSString *url = @"/v1/trips";
+    NSString *url = @"trips";
     NSDictionary *params = @{};
     [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *mResults = [NSMutableArray array];
@@ -151,7 +151,7 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
 
 - (void)getTripForId:(NSString *)identifier completion:(BDKAutomaticCompletionBlock)completion
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@", @"/v1/trips/", identifier];
+    NSString *url = [NSString stringWithFormat:@"%@/%@", @"trips", identifier];
     NSDictionary *params = @{};
     [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BDKAutomaticTrip *trip = [[BDKAutomaticTrip alloc] initWithAPIObject:responseObject];
