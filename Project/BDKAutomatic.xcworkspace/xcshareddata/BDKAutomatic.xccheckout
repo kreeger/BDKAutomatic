@@ -10,29 +10,29 @@
 	<string>BDKAutomatic</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F4EF800C-BF02-422C-A4FE-BCDB47669C37</key>
+		<key>3CC2F2072B5DF56FA0EB852FD2A76AA6EC0162CF</key>
 		<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Project/BDKAutomatic.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F4EF800C-BF02-422C-A4FE-BCDB47669C37</key>
+		<key>3CC2F2072B5DF56FA0EB852FD2A76AA6EC0162CF</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F4EF800C-BF02-422C-A4FE-BCDB47669C37</string>
+	<string>3CC2F2072B5DF56FA0EB852FD2A76AA6EC0162CF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F4EF800C-BF02-422C-A4FE-BCDB47669C37</string>
+			<string>3CC2F2072B5DF56FA0EB852FD2A76AA6EC0162CF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BDKAutomatic</string>
 		</dict>

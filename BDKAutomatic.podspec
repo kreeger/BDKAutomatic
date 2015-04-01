@@ -13,8 +13,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Adapter' do |sub|
     sub.source_files = 'Classes/*.{h,m}'
-    sub.dependency 'AFNetworking/Serialization', '>= 2.0.0'
-    sub.dependency 'AFNetworking/NSURLSession', '>= 2.0.0'
+    sub.dependency 'AFNetworking/NSURLConnection', '~> 2.0'
   end
 
   s.subspec 'MKPolyline' do |sub|
