@@ -50,18 +50,17 @@
 #pragma mark - Authentication and authorization
 
 - (NSURLRequest *)authenticationRequestForAllScopes {
-    NSArray *scopes = @[BDKAutomaticScopeIgnitionOff,
-                        BDKAutomaticScopeIgnitionOn,
+    NSArray *scopes = @[BDKAutomaticScopePublic,
+                        BDKAutomaticScopeUserProfile,
+                        BDKAutomaticScopeUserFollow,
                         BDKAutomaticScopeLocation,
-                        BDKAutomaticScopeMILOff,
-                        BDKAutomaticScopeMILOn,
-                        BDKAutomaticScopeNotificationHardAcceleration,
-                        BDKAutomaticScopeNotificationHardBrake,
-                        BDKAutomaticScopeNotificationSpeeding,
-                        BDKAutomaticScopeParkingChanged,
-                        BDKAutomaticScopeRegionChanged,
-                        BDKAutomaticScopeTripSummary,
-                        BDKAutomaticScopeVehicle,
+                        BDKAutomaticScopeCurrentLocation,
+                        BDKAutomaticScopeVehicleProfile,
+                        BDKAutomaticScopeVehicleEvents,
+                        BDKAutomaticScopeVehicleVIN,
+                        BDKAutomaticScopeTrip,
+                        BDKAutomaticScopeBehavior,
+                        BDKAutomaticScopeAdapterBasic
                         ];
     return [self authenticationRequestForScopes:scopes];
 }

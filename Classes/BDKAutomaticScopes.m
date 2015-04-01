@@ -8,15 +8,14 @@
 
 #import "BDKAutomaticScopes.h"
 
+NSString * const BDKAutomaticScopePublic = @"scope:public";
+NSString * const BDKAutomaticScopeUserProfile = @"scope:user:profile";
+NSString * const BDKAutomaticScopeUserFollow = @"scope:user:follow";
 NSString * const BDKAutomaticScopeLocation = @"scope:location";
-NSString * const BDKAutomaticScopeVehicle  = @"scope:vehicle";
-NSString * const BDKAutomaticScopeTripSummary = @"scope:trip:summary";
-NSString * const BDKAutomaticScopeIgnitionOn = @"scope:ignition:on";
-NSString * const BDKAutomaticScopeIgnitionOff = @"scope:ignition:off";
-NSString * const BDKAutomaticScopeNotificationSpeeding = @"scope:notification:speeding";
-NSString * const BDKAutomaticScopeNotificationHardBrake = @"scope:notification:hard_brake";
-NSString * const BDKAutomaticScopeNotificationHardAcceleration = @"scope:notification:hard_accel";
-NSString * const BDKAutomaticScopeRegionChanged = @"scope:region:changed";
-NSString * const BDKAutomaticScopeParkingChanged = @"scope:parking:changed";
-NSString * const BDKAutomaticScopeMILOn = @"scope:mil:on";
-NSString * const BDKAutomaticScopeMILOff = @"scope:mil:off";
+NSString * const BDKAutomaticScopeCurrentLocation = @"scope:current_location";
+NSString * const BDKAutomaticScopeVehicleProfile = @"scope:vehicle:profile";
+NSString * const BDKAutomaticScopeVehicleEvents = @"scope:vehicle:events";
+NSString * const BDKAutomaticScopeVehicleVIN = @"scope:vehicle:vin";
+NSString * const BDKAutomaticScopeTrip = @"scope:trip";
+NSString * const BDKAutomaticScopeBehavior = @"scope:behavior";
+NSString * const BDKAutomaticScopeAdapterBasic = @"scope:adapter:basic";

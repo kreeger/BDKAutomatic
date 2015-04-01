@@ -8,15 +8,14 @@
 
 @import Foundation;
 
+extern NSString * const BDKAutomaticScopePublic;
+extern NSString * const BDKAutomaticScopeUserProfile;
+extern NSString * const BDKAutomaticScopeUserFollow;
 extern NSString * const BDKAutomaticScopeLocation;
-extern NSString * const BDKAutomaticScopeVehicle;
-extern NSString * const BDKAutomaticScopeTripSummary;
-extern NSString * const BDKAutomaticScopeIgnitionOn;
-extern NSString * const BDKAutomaticScopeIgnitionOff;
-extern NSString * const BDKAutomaticScopeNotificationSpeeding;
-extern NSString * const BDKAutomaticScopeNotificationHardBrake;
-extern NSString * const BDKAutomaticScopeNotificationHardAcceleration;
-extern NSString * const BDKAutomaticScopeRegionChanged;
-extern NSString * const BDKAutomaticScopeParkingChanged;
-extern NSString * const BDKAutomaticScopeMILOn;
-extern NSString * const BDKAutomaticScopeMILOff;
+extern NSString * const BDKAutomaticScopeCurrentLocation;
+extern NSString * const BDKAutomaticScopeVehicleProfile;
+extern NSString * const BDKAutomaticScopeVehicleEvents;
+extern NSString * const BDKAutomaticScopeVehicleVIN;
+extern NSString * const BDKAutomaticScopeTrip;
+extern NSString * const BDKAutomaticScopeBehavior;
+extern NSString * const BDKAutomaticScopeAdapterBasic;
