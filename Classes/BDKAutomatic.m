@@ -65,6 +65,19 @@
     return [self authenticationRequestForScopes:scopes];
 }
 
+- (NSURLRequest *)authenticationRequestForStandardScopes
+{
+    NSArray *scopes = @[BDKAutomaticScopePublic,
+                        BDKAutomaticScopeUserProfile,
+                        BDKAutomaticScopeLocation,
+                        BDKAutomaticScopeVehicleProfile,
+                        BDKAutomaticScopeVehicleEvents,
+                        BDKAutomaticScopeTrip,
+                        BDKAutomaticScopeBehavior,
+                        ];
+    return [self authenticationRequestForScopes:scopes];
+}
+
 - (NSURLRequest *)authenticationRequestForScopes:(NSArray *)scopes {
     NSDictionary *params = @{@"client_id": self.clientId,
                              @"scope": [scopes componentsJoinedByString:@" "],

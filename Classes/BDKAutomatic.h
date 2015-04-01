@@ -36,6 +36,7 @@ typedef void(^BDKAutomaticTokenCompletionBlock)(NSError *error, BDKAutomaticToke
 #pragma mark - Authentication and authorization
 
 - (NSURLRequest *)authenticationRequestForAllScopes;
+- (NSURLRequest *)authenticationRequestForStandardScopes;
 - (NSURLRequest *)authenticationRequestForScopes:(NSArray *)scopes;
 - (void)getAccessTokenForCode:(NSString *)code completion:(BDKAutomaticTokenCompletionBlock)completion;
 

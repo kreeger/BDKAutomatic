@@ -37,7 +37,7 @@
     [super viewDidLoad];
     
     self.title = @"Login to Automatic";
-    NSURLRequest *request = [self.automatic authenticationRequestForAllScopes];
+    NSURLRequest *request = [self.automatic authenticationRequestForStandardScopes];
     [self.webView loadRequest:request];
 }
 
