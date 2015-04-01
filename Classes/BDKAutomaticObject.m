@@ -48,7 +48,7 @@
                 }
             }
         }
-        id remoteValue = [apiObject valueForKey:value];
+        id remoteValue = [apiObject valueForKeyPath:value];
         if (remoteValue && ![remoteValue isEqual:[NSNull null]]) {
             [self setValue:remoteValue forKey:localName];
         }

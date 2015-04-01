@@ -30,7 +30,7 @@
 @property (strong, nonatomic) NSDate *startTime;
 @property (strong, nonatomic) NSString *startTimeZone;
 @property (strong, nonatomic) NSURL *uri;
-@property (strong, nonatomic) NSNumber *userId;
+@property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) BDKAutomaticVehicle *vehicle;
 
 @end
