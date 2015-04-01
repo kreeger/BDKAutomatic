@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BD12A5E5-5D5A-4CFE-A6E4-762BB892EBD2</string>
+	<string>1D47559F-68FE-4535-A615-5DDC995BFEEF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BDKAutomatic</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3CC2F2072B5DF56FA0EB852FD2A76AA6EC0162CF</key>
-		<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
+		<string>github.com:NelsonLeDuc/BDKAutomatic.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Project/BDKAutomatic.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/kreeger/BDKAutomatic.git</string>
+	<string>github.com:NelsonLeDuc/BDKAutomatic.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

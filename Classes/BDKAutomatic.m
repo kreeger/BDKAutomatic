@@ -10,6 +10,9 @@
 
 #import "BDKAutomaticTrip.h"
 
+static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com";
+static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automatic.com/oauth";
+
 @implementation BDKAutomatic
 
 @synthesize clientId = _clientId;
@@ -28,7 +31,7 @@
                     clientSecret:(NSString *)clientSecret
                      redirectUrl:(NSURL *)redirectUrl
                            token:(BDKAutomaticToken *)token {
-    self = [super initWithBaseURL:[NSURL URLWithString:@"https://api.automatic.com"]];
+    self = [super initWithBaseURL:[NSURL URLWithString:kAutomaticAPIBaseURLString]];
     if (!self) return nil;
 
     _clientId = clientId;
@@ -89,7 +92,7 @@
         [components addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
     }];
     NSString *joinedParams = [components componentsJoinedByString:@"&"];
-    NSString *baseURL = @"https://www.automatic.com/oauth/authorize";
+    NSString *baseURL = [NSString stringWithFormat:@"%@/%@", kAutomaticAuthBaseURLString, @"authorize"];
     NSString *fullUrl = [NSString stringWithFormat:@"%@?%@", baseURL, joinedParams];
     NSLog(@"Generated URL %@", fullUrl);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
@@ -97,7 +100,7 @@
 }
 
 - (void)getAccessTokenForCode:(NSString *)code completion:(BDKAutomaticTokenCompletionBlock)completion {
-    NSString *url = @"https://www.automatic.com/oauth/access_token";
+    NSString *url = [NSString stringWithFormat:@"%@/%@", kAutomaticAuthBaseURLString, @"access_token"];
     NSDictionary *params = @{@"client_id": self.clientId,
                              @"client_secret": self.clientSecret,
                              @"code": code,
