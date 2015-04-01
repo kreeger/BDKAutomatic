@@ -8,20 +8,18 @@
 
 @import Foundation;
 
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
-
 #import "BDKAutomaticScopes.h"
 #import "BDKAutomaticToken.h"
 
 typedef void(^BDKAutomaticCompletionBlock)(NSError *error, id responseObject);
 typedef void(^BDKAutomaticTokenCompletionBlock)(NSError *error, BDKAutomaticToken *token);
 
-@interface BDKAutomatic : AFHTTPRequestOperationManager
+@interface BDKAutomatic : NSObject
 
-@property (readonly) NSString *clientId;
-@property (readonly) NSString *clientSecret;
-@property (readonly) NSURL *redirectUrl;
-@property (strong, nonatomic) BDKAutomaticToken *token;
+@property (nonatomic, strong, readonly) NSString *clientId;
+@property (nonatomic, strong, readonly) NSString *clientSecret;
+@property (nonatomic, strong, readonly) NSURL *redirectUrl;
+@property (nonatomic, strong) BDKAutomaticToken *token;
 
 #pragma mark - Lifecycle
 

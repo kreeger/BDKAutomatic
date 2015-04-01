@@ -9,9 +9,19 @@
 #import "BDKAutomatic.h"
 
 #import "BDKAutomaticTrip.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com";
 static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automatic.com/oauth";
+
+@interface BDKAutomatic ()
+
+@property (nonatomic, strong, readwrite) NSString *clientId;
+@property (nonatomic, strong, readwrite) NSString *clientSecret;
+@property (nonatomic, strong, readwrite) NSURL *redirectUrl;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
+
+@end
 
 @implementation BDKAutomatic
 
@@ -31,13 +41,15 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
                     clientSecret:(NSString *)clientSecret
                      redirectUrl:(NSURL *)redirectUrl
                            token:(BDKAutomaticToken *)token {
-    self = [super initWithBaseURL:[NSURL URLWithString:kAutomaticAPIBaseURLString]];
-    if (!self) return nil;
-
-    _clientId = clientId;
-    _clientSecret = clientSecret;
-    _redirectUrl = redirectUrl;
-    [self setToken:token];
+    self = [super init];
+    if (self)
+    {
+        _operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kAutomaticAPIBaseURLString]];
+        _clientId = clientId;
+        _clientSecret = clientSecret;
+        _redirectUrl = redirectUrl;
+        [self setToken:token];
+    }
     
     return self;
 }
@@ -47,7 +59,7 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
 - (void)setToken:(BDKAutomaticToken *)token {
     _token = token;
     NSString *value = token ? [NSString stringWithFormat:@"token %@", token.accessToken] : @"";
-    [self.requestSerializer setValue:value forHTTPHeaderField:@"Authorization"];
+    [self.operationManager.requestSerializer setValue:value forHTTPHeaderField:@"Authorization"];
 }
 
 #pragma mark - Authentication and authorization
@@ -105,7 +117,7 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
                              @"client_secret": self.clientSecret,
                              @"code": code,
                              @"grant_type": @"authorization_code"};
-    [self POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.token = [BDKAutomaticToken tokenWithDictionary:responseObject];
         if (completion) {
             completion(nil, self.token);
@@ -122,7 +134,7 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
 - (void)getTrips:(BDKAutomaticCompletionBlock)completion {
     NSString *url = @"/v1/trips";
     NSDictionary *params = @{};
-    [self GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *mResults = [NSMutableArray array];
         [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [mResults addObject:[[BDKAutomaticTrip alloc] initWithAPIObject:obj]];
