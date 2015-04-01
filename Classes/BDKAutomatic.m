@@ -149,6 +149,22 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
     }];
 }
 
+- (void)getTripForId:(NSString *)identifier completion:(BDKAutomaticCompletionBlock)completion
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@", @"/v1/trips/", identifier];
+    NSDictionary *params = @{};
+    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BDKAutomaticTrip *trip = [[BDKAutomaticTrip alloc] initWithAPIObject:responseObject];
+        if (completion) {
+            completion(nil, trip);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(error, operation.responseObject);
+        }
+    }];
+}
+
 @end
 
 
