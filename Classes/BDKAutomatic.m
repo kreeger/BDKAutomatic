@@ -9,6 +9,7 @@
 #import "BDKAutomatic.h"
 
 #import "BDKAutomaticTrip.h"
+#import "BDKAutomaticUser.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com/v1";
@@ -157,6 +158,24 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
         BDKAutomaticTrip *trip = [[BDKAutomaticTrip alloc] initWithAPIObject:responseObject];
         if (completion) {
             completion(nil, trip);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(error, operation.responseObject);
+        }
+    }];
+}
+
+#pragma mark - User data
+
+- (void)getUser:(BDKAutomaticCompletionBlock)completion
+{
+    NSString *url = @"user";
+    NSDictionary *params = @{};
+    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BDKAutomaticUser *user = [[BDKAutomaticUser alloc] initWithAPIObject:responseObject];
+        if (completion) {
+            completion(nil, user);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (completion) {

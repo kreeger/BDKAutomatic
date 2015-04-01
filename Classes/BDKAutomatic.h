@@ -43,6 +43,10 @@ typedef void(^BDKAutomaticTokenCompletionBlock)(NSError *error, BDKAutomaticToke
 - (void)getTrips:(BDKAutomaticCompletionBlock)completion;
 - (void)getTripForId:(NSString *)identifier completion:(BDKAutomaticCompletionBlock)completion;
 
+#pragma mark - User data
+
+- (void)getUser:(BDKAutomaticCompletionBlock)completion;
+
 @end
 
 
