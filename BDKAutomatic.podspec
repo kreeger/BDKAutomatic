@@ -20,4 +20,9 @@ Pod::Spec.new do |s|
     sub.source_files = 'Classes/MapKit/*.{h,m}'
     sub.frameworks = 'MapKit'
   end
+  
+  s.subspec 'Promise' do |sub|
+    sub.source_files = 'Classes/Promise/*.{h,m}'
+    sub.dependency 'PromiseKit/Promise'
+  end
 end
