@@ -15,6 +15,7 @@ PODS:
     - AFNetworking/NSURLConnection (~> 2.0)
   - NLAutomatic/MKPolyline (0.1.0)
   - NLAutomatic/Promise (0.1.0):
+    - NLAutomatic/Adapter
     - PromiseKit/Promise
   - PromiseKit/Promise (1.4.2)
   - Reveal-iOS-SDK (1.5.1)
@@ -33,7 +34,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  NLAutomatic: f5056a62c4a554f652e1575c3a0527321d8d054e
+  NLAutomatic: 4480f3297183d1e75f383403d56abe82866174c6
   PromiseKit: ea36001b558f42aa104a1422f305b46f8c343f2e
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
