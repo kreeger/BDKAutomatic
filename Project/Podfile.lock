@@ -6,31 +6,36 @@ PODS:
   - AFNetworking/Reachability (2.5.2)
   - AFNetworking/Security (2.5.2)
   - AFNetworking/Serialization (2.5.2)
-  - BDKAutomatic (0.1.0):
-    - BDKAutomatic/Adapter (= 0.1.0)
-    - BDKAutomatic/MKPolyline (= 0.1.0)
-  - BDKAutomatic/Adapter (0.1.0):
-    - AFNetworking/NSURLConnection (~> 2.0)
-  - BDKAutomatic/MKPolyline (0.1.0)
   - Expecta (HEAD based on 0.3.2)
+  - NLAutomatic (0.1.0):
+    - NLAutomatic/Adapter (= 0.1.0)
+    - NLAutomatic/MKPolyline (= 0.1.0)
+    - NLAutomatic/Promise (= 0.1.0)
+  - NLAutomatic/Adapter (0.1.0):
+    - AFNetworking/NSURLConnection (~> 2.0)
+  - NLAutomatic/MKPolyline (0.1.0)
+  - NLAutomatic/Promise (0.1.0):
+    - PromiseKit/Promise
+  - PromiseKit/Promise (1.4.2)
   - Reveal-iOS-SDK (1.5.1)
-  - Specta (HEAD based on 0.4.0)
+  - Specta (HEAD based on 0.5.0)
 
 DEPENDENCIES:
-  - BDKAutomatic (from `../BDKAutomatic.podspec`)
   - Expecta (HEAD)
+  - NLAutomatic (from `../NLAutomatic.podspec`)
   - Reveal-iOS-SDK
   - Specta (HEAD)
 
 EXTERNAL SOURCES:
-  BDKAutomatic:
-    :path: ../BDKAutomatic.podspec
+  NLAutomatic:
+    :path: ../NLAutomatic.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  BDKAutomatic: 773b5a584d4fcbe399e06cc0cc7cf9f2e0508244
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
+  NLAutomatic: f5056a62c4a554f652e1575c3a0527321d8d054e
+  PromiseKit: ea36001b558f42aa104a1422f305b46f8c343f2e
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
-  Specta: a353759f073ffcc0a365b782fe4aaeac064c03c6
+  Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
 
 COCOAPODS: 0.36.0
