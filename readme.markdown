@@ -65,10 +65,6 @@ If you don't want to use the "path-to-`MKPolyline`" functionality, just use [the
 pod 'NLAutomatic/Adapter'
 ```
 
-## Author
-
-Ben Kreeger, ben@kree.gr
-
 ## License
 
 NLAutomatic is available under the MIT license. See the LICENSE file for more info.
