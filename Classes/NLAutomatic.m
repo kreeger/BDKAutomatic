@@ -11,6 +11,9 @@
 #import "NLAutomaticTrip.h"
 #import "NLAutomaticUser.h"
 #import "NLAutomaticVehicle.h"
+#import "NLAutomaticToken.h"
+#import "NLAutomaticOperation.h"
+#import "AFHTTPRequestOperation+NLAutomaticOperation.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 static NSString * const kAutomaticAPIBaseURLString = @"https://api.automatic.com/v1";
@@ -133,10 +136,10 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
 
 #pragma mark - Trip data
 
-- (void)getTrips:(NLAutomaticCompletionBlock)completion {
+- (id<NLAutomaticOperation>)getTrips:(NLAutomaticCompletionBlock)completion {
     NSString *url = @"trips";
     NSDictionary *params = @{};
-    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    id<NLAutomaticOperation> automaticOp = [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *mResults = [NSMutableArray array];
         [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [mResults addObject:[[NLAutomaticTrip alloc] initWithAPIObject:obj]];
@@ -149,13 +152,15 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
             completion(error, operation.responseObject);
         }
     }];
+    
+    return automaticOp;
 }
 
-- (void)getTripForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion
+- (id<NLAutomaticOperation>)getTripForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion
 {
     NSString *url = [NSString stringWithFormat:@"%@/%@", @"trips", identifier];
     NSDictionary *params = @{};
-    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    id<NLAutomaticOperation> automaticOp = [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NLAutomaticTrip *trip = [[NLAutomaticTrip alloc] initWithAPIObject:responseObject];
         if (completion) {
             completion(nil, trip);
@@ -165,15 +170,17 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
             completion(error, operation.responseObject);
         }
     }];
+    
+    return automaticOp;
 }
 
 #pragma mark - User data
 
-- (void)getUser:(NLAutomaticCompletionBlock)completion
+- (id<NLAutomaticOperation>)getUser:(NLAutomaticCompletionBlock)completion
 {
     NSString *url = @"user";
     NSDictionary *params = @{};
-    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    id<NLAutomaticOperation> automaticOp = [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NLAutomaticUser *user = [[NLAutomaticUser alloc] initWithAPIObject:responseObject];
         if (completion) {
             completion(nil, user);
@@ -183,15 +190,17 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
             completion(error, operation.responseObject);
         }
     }];
+    
+    return automaticOp;
 }
 
 #pragma mark - Vehicle data
 
-- (void)getVehicles:(NLAutomaticCompletionBlock)completion
+- (id<NLAutomaticOperation>)getVehicles:(NLAutomaticCompletionBlock)completion
 {
     NSString *url = @"vehicles";
     NSDictionary *params = @{};
-    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    id<NLAutomaticOperation> automaticOp = [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *mResults = [NSMutableArray array];
         [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [mResults addObject:[[NLAutomaticVehicle alloc] initWithAPIObject:obj]];
@@ -204,13 +213,15 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
             completion(error, operation.responseObject);
         }
     }];
+    
+    return automaticOp;
 }
 
-- (void)getVehicleForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion
+- (id<NLAutomaticOperation>)getVehicleForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion
 {
     NSString *url = [NSString stringWithFormat:@"%@/%@", @"vehicles", identifier];
     NSDictionary *params = @{};
-    [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    id<NLAutomaticOperation> automaticOp = [self.operationManager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NLAutomaticVehicle *vehicle = [[NLAutomaticVehicle alloc] initWithAPIObject:responseObject];
         if (completion) {
             completion(nil, vehicle);
@@ -220,6 +231,8 @@ static NSString * const kAutomaticAuthBaseURLString = @"https://accounts.automat
             completion(error, operation.responseObject);
         }
     }];
+    
+    return automaticOp;
 }
 
 @end

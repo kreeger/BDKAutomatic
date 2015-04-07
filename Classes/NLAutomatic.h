@@ -7,9 +7,10 @@
 //
 
 @import Foundation;
-
 #import "NLAutomaticScopes.h"
-#import "NLAutomaticToken.h"
+
+@class NLAutomaticToken;
+@protocol NLAutomaticOperation;
 
 typedef void(^NLAutomaticCompletionBlock)(NSError *error, id responseObject);
 typedef void(^NLAutomaticTokenCompletionBlock)(NSError *error, NLAutomaticToken *token);
@@ -40,17 +41,17 @@ typedef void(^NLAutomaticTokenCompletionBlock)(NSError *error, NLAutomaticToken 
 
 #pragma mark - Trip data
 
-- (void)getTrips:(NLAutomaticCompletionBlock)completion;
-- (void)getTripForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion;
+- (id<NLAutomaticOperation>)getTrips:(NLAutomaticCompletionBlock)completion;
+- (id<NLAutomaticOperation>)getTripForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion;
 
 #pragma mark - User data
 
-- (void)getUser:(NLAutomaticCompletionBlock)completion;
+- (id<NLAutomaticOperation>)getUser:(NLAutomaticCompletionBlock)completion;
 
 #pragma mark - Vehicle data
 
-- (void)getVehicles:(NLAutomaticCompletionBlock)completion;
-- (void)getVehicleForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion;
+- (id<NLAutomaticOperation>)getVehicles:(NLAutomaticCompletionBlock)completion;
+- (id<NLAutomaticOperation>)getVehicleForId:(NSString *)identifier completion:(NLAutomaticCompletionBlock)completion;
 
 @end
 
