@@ -1,7 +1,7 @@
-pod "BDKAutomatic", :path => "../BDKAutomatic.podspec"
+pod "NLAutomatic", :path => "../NLAutomatic.podspec"
 
 pod 'Reveal-iOS-SDK'
-# target "BDKAutomatic" do
+# target "NLAutomatic" do
 
 # end
 
